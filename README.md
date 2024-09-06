@@ -202,3 +202,28 @@ However, this pattern doesn’t work particularly well for complex workflows, es
 | Complexity | High |
 | Responsiveness/Availability | High |
 | Scale/elasticity | Very High |
+
+## Conclusion
+
+The saga pattern provides a way to manage transactions and workflows in a distributed system. The pattern is a sequence of local transactions where each update publishes an event, thus triggering the next update in the sequence. If a failure occurs, the saga executes compensating transactions that counteract the preceding updates.
+
+## State Management and Eventual Consistency
+
+State management and eventual consistency leverage finite state machines to always know the current state of the transactional saga, and to also eventually correct the error condition through retries or some sort of automated or manual corrective action.
+
+By managing the state of the saga rather than issuing compensating updates, the end user (in this case, the Sysops Squad expert) doesn’t need to be concerned that the sur‐ vey was not sent to the customer—that responsibility is for the Ticket Orchestrator Service to worry about. Responsiveness is good from the end user’s perspective, and the user can work on other tasks while the errors are handled by the system.
+
+## Saga State Machines
+
+A state machine is a pattern that describes all of the possible paths that can exist within a distributed architecture. A state machine always starts with a beginning state that launches the transactional saga, then contains transition states and corresponding action that should occur when the transition state happens.
+
+To illustrate how a saga state machine works, consider the following workflow of a new problem ticket created by a customer in the Sysops Squad system:
+
+1. The customer enters a new problem ticket into the system.
+2. The ticket is assigned to the next available Sysops Squad expert.
+3. The ticket is then routed to the expert’s mobile device.
+4. The expert receives the ticket and works on the issue.
+5. The expert finishes the repair and marks the ticket as complete.
+6. A survey is sent to the customer.
+
+![Saga State Machine](./images/state-machine.png)
