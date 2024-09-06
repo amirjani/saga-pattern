@@ -118,3 +118,24 @@ Because this pattern lacks holistic transactional coordination, architects must 
 | Complexity | Low |
 | Responsiveness/Availability | Medium |
 | Scale/elasticity | High |
+
+## Fantasy Fiction Saga Pattern
+
+Traditionally, one way that architects increase the responsiveness of distributed systems is by using asynchronicity, allowing operations to occur in parallel rather than serially. This may seem like a good way to increase the perceived performance over an Epic Saga.
+
+![Fantasy Fiction Saga Pattern](./images/fantasy-fiction-story-saga.png)
+
+Adding asynchronicity to orchestrated workflows adds asynchronous transactional state to the equation, removing serial assumptions about ordering and adding the possibilities of deadlocks, race conditions, and a host of other parallel system challenges.
+
+### Rating - Fantasy Fiction Saga Pattern
+
+| Fantasy Fiction Saga Pattern | Rating |
+| --- | --- |
+| Communication | Asynchronous |
+| Consistency | Atomic |
+| Coordination | Orchestrated |
+| Coupling | High |
+| Complexity | High |
+| Responsiveness/Availability | Low |
+| Scale/elasticity | Low |
+
