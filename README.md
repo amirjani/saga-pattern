@@ -44,3 +44,28 @@ The clear advantage of the Epic Saga(sao) is the transactional coordination that
 | Complexity | High |
 | Responsiveness/Availability | Low |
 | Scale/elasticity | Very Low |
+
+## Phone Tag Saga Pattern
+
+The Phone Tag Saga(sac) pattern changes one of the dimensions of the Epic Saga(sao), changing coordination from orchestrated to choreographed.
+
+![Phone Tag Saga Pattern](./images/phone-tag-saga.png)
+
+The pattern name is Phone Tag because it resembles a well-known children’s game known as Telephone in North America: children form a circle, and one person whispers a secret to the next person, who passes it along to the next, until the final version is spoken by the last person.
+
+How does choreography versus orchestration improve operational architecture characteristics like scale? Using choreography even with synchronous communication cuts down on bottlenecks—in non-error conditions, the services can operate independently, and the overall system can scale more easily.
+
+A nice feature of non-orchestrated architectures is the lack of a coupling singularity, a single place the workflow couples to.
+
+### Rating - Phone Tag Saga Pattern
+
+| Phone Tag Saga Pattern | Rating |
+| --- | --- |
+| Communication | Synchronous |
+| Consistency | Atomic |
+| Coordination | Choreographed |
+| Coupling | High |
+| Complexity | High |
+| Responsiveness/Availability | Low |
+| Scale/elasticity | High |
+
