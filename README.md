@@ -69,3 +69,26 @@ A nice feature of non-orchestrated architectures is the lack of a coupling singu
 | Responsiveness/Availability | Low |
 | Scale/elasticity | High |
 
+## Fairy Tale Saga Pattern
+
+Typical fairy tales provide happy stories with easy-to-follow plots, thus the name Fairy Tale Saga(seo), which utilizes synchronous communication, eventual consistency, and orchestration.
+
+![Fairy Tale Saga Pattern](./images/fairy-tale-saga.png)
+
+This communication pattern relaxes the difficult atomic requirement, providing many more options for architects to design systems. For example, if a service is down temporarily, eventual consistency allows for caching a change until the service restores.
+
+In this pattern, an orchestrator exists to coordinate request, response, and error handling. However, the orchestrator isn’t responsible for managing transactions, which each domain service retains responsibility for. Thus the orchestrator can manage compensating calls, but without the requirement of occurring within an active transaction.
+
+The biggest appealing advantage of the Fairy Tale Saga(seo) is the lack of holistic trans‐ actions. Each domain service manages its own transactional behavior, relying on eventual consistency for the overall workflow.
+
+### Rating - Fairy Tale Saga Pattern
+
+| Fairy Tale Saga Pattern | Rating |
+| --- | --- |
+| Communication | Synchronous |
+| Consistency | Eventual |
+| Coordination | Orchestrated |
+| Coupling | High |
+| Complexity | Very Low |
+| Responsiveness/Availability | Medium |
+| Scale/elasticity | High |
