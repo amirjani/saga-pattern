@@ -92,3 +92,29 @@ The biggest appealing advantage of the Fairy Tale Saga(seo) is the lack of holis
 | Complexity | Very Low |
 | Responsiveness/Availability | Medium |
 | Scale/elasticity | High |
+
+## Time Travel Saga Pattern
+
+The Time Travel Saga(sec) pattern features synchronous communication, and eventual consistency, but choreographed workflow. In other words, this pattern avoids a central mediator, placing the workflow responsibilities entirely on the participating domain services.
+
+![Time Travel Saga Pattern](./images/time-travel-saga.png)
+
+In this workflow, each service accepts a request, performs an action, and then for‐ wards the request on to another service. This architecture can implement the Chain of Responsibility design pattern or the Pipes and Filters architecture style.
+
+Each service in this pattern “owns” its own transactional operations, so architects must design workflow error conditions into the domain design. this pattern is best suited for simple workflows with few services, as the complexity of error handling increases with each additional service.
+
+For solutions that benefit from high throughput, this pattern works extremely well for “fire and forget” style workflows, such as electronic data ingestion, bulk transactions, and so on.
+
+Because this pattern lacks holistic transactional coordination, architects must take extra effort to synchronize data.
+
+### Rating - Time Travel Saga Pattern
+
+| Time Travel Saga Pattern | Rating |
+| --- | --- |
+| Communication | Synchronous |
+| Consistency | Eventual |
+| Coordination | Choreographed |
+| Coupling | Medium |
+| Complexity | Low |
+| Responsiveness/Availability | Medium |
+| Scale/elasticity | High |
