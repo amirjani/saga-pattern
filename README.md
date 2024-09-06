@@ -180,3 +180,25 @@ Asynchronous communication, while offering better responsiveness, makes resolvin
 | Complexity | Low |
 | Responsiveness/Availability | High |
 | Scale/elasticity | High |
+
+## Anthology Saga Pattern
+
+The Anthology Saga(aec) pattern provides the exact opposite set of characteristics to the traditional Epic Saga(sao) pattern: it utilizes asynchronous communication, eventual consistency, and choreographed coordination, providing the least coupled exemplar among all these patterns.
+
+The anthology pattern uses message queues to send asynchronous messages to other domain services without orchestration.
+
+The lack of orchestration makes services more complex but allows for much higher throughput, scalability, elasticity, and other beneficial operational architecture characteristics. No bottlenecks or coupling choke points exist in this architecture, allow‐ ing for high responsiveness and scalability.
+
+However, this pattern doesn’t work particularly well for complex workflows, especially around resolving data consistency errors. While it may not seem possible without an orchestrator, the Anthology Saga(aec) pattern can still provide a high level of responsiveness and scalability.
+
+### Rating - Anthology Saga Pattern
+
+| Anthology Saga Pattern | Rating |
+| --- | --- |
+| Communication | Asynchronous |
+| Consistency | Eventual |
+| Coordination | Choreographed |
+| Coupling | Very Low |
+| Complexity | High |
+| Responsiveness/Availability | High |
+| Scale/elasticity | Very High |
