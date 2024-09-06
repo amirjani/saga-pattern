@@ -156,3 +156,27 @@ Why is this combination so horrible? It combines the most stringent coupling aro
 | Complexity | Very High |
 | Responsiveness/Availability | Low |
 | Scale/elasticity | Medium |
+
+## Parallel Saga Pattern
+
+The Parallel Saga(aeo) pattern is named after the “traditional” Epic Saga(sao) pattern with two key differences that ease restrictions and therefore make it an easier pattern to implement: asynchronous communication and eventual consistency. The dimensional diagram of the Parallel Saga(aeo) pattern.
+
+![Parallel Saga Pattern](./images/parallel-saga.png)
+
+This pattern uses a mediator, making it suitable for complex workflows. However, it uses asynchronous communication, allowing for better responsiveness and parallel execution. Consistency in the pattern lies with the domain services, which may require some synchronization of shared data, either in the background or driven via the mediator. As in other architectural problems that require coordination, a mediator becomes quite useful.
+
+For example, if an error occurs during the execution of a workflow, the mediator can send asynchronous messages to each involved domain service to compensate for the failed change, which may entail retries, data synchronization, or a host of other remediations.
+
+Asynchronous communication, while offering better responsiveness, makes resolving timing and synchronization issues difficult—race conditions, deadlocks, queue reliability, and a host of other distributed architecture headaches reside in this space.
+
+### Rating - Parallel Saga Pattern
+
+| Parallel Saga Pattern | Rating |
+| --- | --- |
+| Communication | Asynchronous |
+| Consistency | Eventual |
+| Coordination | Orchestrated |
+| Coupling | Low |
+| Complexity | Low |
+| Responsiveness/Availability | High |
+| Scale/elasticity | High |
