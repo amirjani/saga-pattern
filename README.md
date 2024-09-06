@@ -139,3 +139,20 @@ Adding asynchronicity to orchestrated workflows adds asynchronous transactional 
 | Responsiveness/Availability | Low |
 | Scale/elasticity | Low |
 
+## Horror Story Saga Pattern
+
+One of the patterns must be the worst possible combination; it is the aptly named Horror Story(aac) pattern, characterized by asynchronous communication, atomic consistency, and choreographed coordination.
+
+Why is this combination so horrible? It combines the most stringent coupling around consistency (atomic) with the two loosest coupling styles, asynchronous and choreography.
+
+### Rating - Horror Story Saga Pattern
+
+| Horror Story Saga Pattern | Rating |
+| --- | --- |
+| Communication | Asynchronous |
+| Consistency | Atomic |
+| Coordination | Choreographed |
+| Coupling | Medium |
+| Complexity | Very High |
+| Responsiveness/Availability | Low |
+| Scale/elasticity | Medium |
